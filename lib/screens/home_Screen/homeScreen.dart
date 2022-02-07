@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class homeScreen extends StatelessWidget {
   const homeScreen({ Key? key }) : super(key: key);
@@ -6,30 +7,63 @@ class homeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true ,
+       title: Text("main screen"),),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           
           children: [
             Expanded(
-              flex: 1,
-              child: Container(
-                height: 486,
-                width: 331,
-                color: Color(0xE300B5CE),
+              flex: 2,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50.0),
+                child: Container(
+                  color: Color(0xE3323738),
+                ),
               ),
             ),
-             Expanded(
-               flex:4,
+             Expanded( 
+               flex: 4,
                child: Container(
                  
+                padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+                 width: double.maxFinite,
+                 child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(5.0),
+                      topRight: Radius.circular(5)
+                      ),
+                      
+                   child: SfCalendar(
+                       view: CalendarView.week,
+                       firstDayOfWeek: 6,
+                       todayHighlightColor: Colors.blueAccent,
+                      backgroundColor: Colors.teal,
+                       cellBorderColor: Colors.transparent,
+                       selectionDecoration: BoxDecoration(//decorate slected box
+						color: Colors.transparent,
+						border: Border.all(
+						color: Colors.red, width: 2),
+						borderRadius: const BorderRadius.all(Radius.circular(44)),
+						shape: BoxShape.rectangle,
+					),
+                       
+                       ),
+                 ),
                  height: 40,
-                color: Color(0xFF144286f),
+                
                          ),
              ),
             
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add, color: Colors.black,),
+        backgroundColor: Colors.white,
+        onPressed: (){},
       ),
       );
   }
