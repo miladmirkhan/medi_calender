@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:medi_calender/widgets/appBar.dart';
+import 'package:medi_calender/widgets/floatingButton.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 
@@ -36,7 +37,7 @@ class _homeScreenState extends State<homeScreen> {
                     children: [          
                        Container(
                           margin: EdgeInsets.all(5),
-                      width: 120.0,
+                      width: 100.0,
                       decoration:  BoxDecoration(
                           shape: BoxShape.circle,
                           image:  DecorationImage(
@@ -97,11 +98,7 @@ class _homeScreenState extends State<homeScreen> {
            ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add, color: Colors.black,),
-        backgroundColor: Color(0xffffffff),
-        onPressed: (){},
-      ),
+      floatingActionButton: MyFloatingButton(),
 
        bottomNavigationBar: BottomNavyBar(
         selectedIndex: _currentIndex,
