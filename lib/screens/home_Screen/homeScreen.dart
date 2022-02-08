@@ -1,13 +1,22 @@
 import 'dart:ui';
 
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({ Key? key }) : super(key: key);
+
+class homeScreen extends StatefulWidget {
+  @override
+  State<homeScreen> createState() => _homeScreenState();
+}
+
+class _homeScreenState extends State<homeScreen> {
+   int _currentIndex = 0;
+  int _counter = 0;
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: Colors.white38,
       appBar: AppBar(
@@ -29,7 +38,7 @@ class homeScreen extends StatelessWidget {
                     children: [          
                        Container(
                           margin: EdgeInsets.all(5),
-                      width: 150.0,
+                      width: 120.0,
                       decoration:  BoxDecoration(
                           shape: BoxShape.circle,
                           image:  DecorationImage(
@@ -49,7 +58,7 @@ class homeScreen extends StatelessWidget {
                            Divider(
                              height: 5,
                            ),
-                           Text("How is your health?"),
+                           Text("      How is your health?"),
                         ],
                       ),
                     ],
@@ -73,7 +82,7 @@ class homeScreen extends StatelessWidget {
                      view: CalendarView.week,
                      firstDayOfWeek: 6,
                      todayHighlightColor: Colors.blueAccent,
-                    backgroundColor: Colors.teal,
+                    backgroundColor: Color(0xff0044ff),
                      cellBorderColor: Colors.transparent,
                      selectionDecoration: BoxDecoration(//decorate slected box
 						color: Colors.transparent,
@@ -92,11 +101,47 @@ class homeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add, color: Colors.black,),
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xffffffff),
         onPressed: (){},
       ),
 
+       bottomNavigationBar: BottomNavyBar(
+        selectedIndex: _currentIndex,
+        showElevation: true,
+        itemCornerRadius: 24,
+        curve: Curves.easeIn,
+        backgroundColor: Colors.transparent,
+        onItemSelected: (index) => setState(() => _currentIndex = index),
+        items: <BottomNavyBarItem>[
+          BottomNavyBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            inactiveColor: Colors.black,
+            activeColor: Colors.blue,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.calendar_today),
+            title: Text('Calender'),
+            inactiveColor: Colors.black,
+            activeColor: Colors.green,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.person),
+            title: Text('User'),
+             inactiveColor: Colors.black,
+            activeColor: Colors.yellowAccent,
+            textAlign: TextAlign.center,
+          )]
+         
+          ),
+       );
 
-      );
+
+     
+
+
+
   }
-}
+} 
