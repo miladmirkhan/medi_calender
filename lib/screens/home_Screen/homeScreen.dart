@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:medi_calender/widgets/appBar.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 
@@ -19,10 +20,7 @@ class _homeScreenState extends State<homeScreen> {
     
     return Scaffold(
       backgroundColor: Colors.white38,
-      appBar: AppBar(
-        centerTitle: true ,
-       title: Text("main screen"),
-       ),
+      appBar: MyAppBar(title: "Home Screen",titlColors: Colors.black,backColor: Colors.white,),
       body: Column(
          children: [
           Expanded(
@@ -139,7 +137,13 @@ class _homeScreenState extends State<homeScreen> {
        );
 
 
-     
+    Widget buildPages(){
+      switch (_currentIndex){
+        case 0:
+        default:
+        return homeScreen();
+      }
+    } 
 
 
 
