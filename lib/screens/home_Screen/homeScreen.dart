@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:medi_calender/widgets/appBar.dart';
+import 'package:medi_calender/widgets/calender.dart';
 import 'package:medi_calender/widgets/floatingButton.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
@@ -20,7 +21,7 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      backgroundColor: Colors.white38,
+      backgroundColor: Colors.white,
       appBar: MyAppBar(title: "Home Screen",titlColors: Colors.black,backColor: Colors.white,),
       body: Column(
          children: [
@@ -76,22 +77,22 @@ class _homeScreenState extends State<homeScreen> {
                     topLeft: Radius.circular(5.0),
                     topRight: Radius.circular(5)
                     ),
-                    
-                 child: SfCalendar(
-                     view: CalendarView.week,
-                     firstDayOfWeek: 6,
-                     todayHighlightColor: Colors.blueAccent,
-                    backgroundColor: Color(0xff0044ff),
-                     cellBorderColor: Colors.transparent,
-                     selectionDecoration: BoxDecoration(//decorate slected box
-						color: Colors.transparent,
-						border: Border.all(
-						color: Colors.red, width: 2),
-						borderRadius: const BorderRadius.all(Radius.circular(44)),
-						shape: BoxShape.rectangle,
-					),
+                   child: calenderWidget(), 
+          //        child: SfCalendar(
+          //            view: CalendarView.week,
+          //            firstDayOfWeek: 6,
+          //            todayHighlightColor: Colors.blueAccent,
+          //           backgroundColor: Color(0xff0044ff),
+          //            cellBorderColor: Colors.transparent,
+          //            selectionDecoration: BoxDecoration(//decorate slected box
+					// 	color: Colors.transparent,
+					// 	border: Border.all(
+					// 	color: Colors.red, width: 2),
+					// 	borderRadius: const BorderRadius.all(Radius.circular(44)),
+					// 	shape: BoxShape.rectangle,
+					// ),
                      
-                     ),
+          //            ),
                ),
                height: 40,
                        ),
@@ -105,7 +106,8 @@ class _homeScreenState extends State<homeScreen> {
         showElevation: true,
         itemCornerRadius: 24,
         curve: Curves.easeIn,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
+        
         onItemSelected: (index) => setState(() => _currentIndex = index),
         items: <BottomNavyBarItem>[
           BottomNavyBarItem(
@@ -126,7 +128,7 @@ class _homeScreenState extends State<homeScreen> {
             icon: Icon(Icons.person),
             title: Text('User'),
              inactiveColor: Colors.black,
-            activeColor: Colors.yellowAccent,
+            activeColor: Colors.amberAccent,
             textAlign: TextAlign.center,
           )]
          

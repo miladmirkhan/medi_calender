@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medi_calender/screens/add_Date_Page/addDatePage.dart';
 
 class MyFloatingButton extends StatelessWidget  {
   
@@ -9,7 +10,9 @@ class MyFloatingButton extends StatelessWidget  {
     return FloatingActionButton(
         child: Icon(Icons.add, color: Colors.black,),
         backgroundColor: Color(0xffffffff),
-        onPressed: (){},
+        onPressed: ()=> Navigator.of(context).push(
+          MaterialPageRoute(builder: (context)=>medicinEditingPage())
+        ),
         );
   }
 }
