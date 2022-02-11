@@ -40,6 +40,8 @@ void initState(){
 
 void dispose(){
   titleController.dispose();
+
+  super.dispose();
 }
 
   @override
@@ -81,7 +83,7 @@ void dispose(){
              border: UnderlineInputBorder(),
              hintText: 'Add Title',
            ),
-           onFieldSubmitted: (_){},
+           onFieldSubmitted: (_)=>saveForm,
            validator:(title)=>
            title !=null && title.isEmpty ?'Title cannot be empty!!':null ,
            controller: titleController,
@@ -231,13 +233,15 @@ if(date.isAfter(toDate)){
              );
              
               final isEditing=widget.medicin!=null;
-              final provider=Provider.of<MedicinProvider>(context,  listen: true );
-               
+              final provider=Provider.of<MedicinProvider>(context,  listen: false );
+                Navigator.of(context).pop(); 
+                print("it work");
                if(isEditing){
                     provider.editMedicin(medicin,widget.medicin!);
                     Navigator.of(context).pop(); 
                }else{
                 provider.addMedicin(medicin);
+                 Navigator.of(context).pop(); 
                }
               
               

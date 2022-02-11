@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:medi_calender/model/medicin.dart';
 
 class MedicinProvider extends ChangeNotifier{
-final List<Medicin> _medecin=[];
+final List<Medicin> _medecins=[];
 
-List <Medicin> get Medicins =>_medecin;
+List <Medicin> get medicins =>_medecins;
 
 DateTime _slectedDate=DateTime.now();
 
@@ -12,21 +12,21 @@ DateTime get seletedDate=>_slectedDate;
 
 void setDate(DateTime date)=>_slectedDate=date;
 
-List<Medicin> get medicinOfSlectedDate=> _medecin;
+List<Medicin> get medicinOfSlectedDate=> _medecins;
 
 void addMedicin(Medicin medicin){
- _medecin.add(medicin);
+ _medecins.add(medicin);
 
   notifyListeners();
 }
 
 void deleteMedicin(Medicin medicin){
-  _medecin.remove(medicin);
+  _medecins.remove(medicin);
 }
 
   void editMedicin(Medicin newMedicin,Medicin oldMedicin){
-      final index=_medecin.indexOf(oldMedicin);
-      _medecin[index]=newMedicin;
+      final index=_medecins.indexOf(oldMedicin);
+      _medecins[index]=newMedicin;
 
       notifyListeners();
   }

@@ -11,11 +11,11 @@ class calenderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final medicin=Provider.of<MedicinProvider>(context).Medicins;
+    final medicins=Provider.of<MedicinProvider>(context).medicins;
 
     return SfCalendar(
       view:CalendarView.month,
-      dataSource: medicinDataSource(medicin) ,
+      dataSource: medicinDataSource(medicins) ,
       initialSelectedDate: DateTime.now(),
       cellBorderColor: Colors.transparent,
       onLongPress: (details){
@@ -25,7 +25,8 @@ class calenderWidget extends StatelessWidget {
 
           showModalBottomSheet(
             context: context,
-             builder:(context)=>TasksWidget(),);
+             builder:(context)=>TasksWidget(),
+             );
       },
     );
   }

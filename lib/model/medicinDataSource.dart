@@ -18,7 +18,7 @@ DateTime getStartTime(int index)=> getMedicin(index).from;
 DateTime getEndTime(int index)=> getMedicin(index).to;
 
 @override
-String getSUbject(int index)=> getMedicin(index).title;
+String getSubject(int index)=> getMedicin(index).title;
 
 @override
 bool isAllDay(int index)=> getMedicin(index).isAllDay;

@@ -35,7 +35,7 @@ class _TasksWidgetState extends State<TasksWidget> {
      ),
      child: SfCalendar(
        view: CalendarView.timelineDay,
-       dataSource: medicinDataSource(provider.Medicins),
+       dataSource: medicinDataSource(provider.medicins),
        initialDisplayDate: provider.seletedDate,
        appointmentBuilder: appointmentBuilder,
        headerHeight: 0,
@@ -46,10 +46,10 @@ class _TasksWidgetState extends State<TasksWidget> {
        onTap: (details){
          if(details.appointments==null)return;
 
-         final Medicin=details.appointments!.first;
+         final medicin=details.appointments!.first;
 
          Navigator.of(context).push(MaterialPageRoute(
-           builder: (context)=> medicinViewingPage(medicin:Medicin),
+           builder: (context)=> medicinViewingPage(medicin:medicin),
            ));
        },
      ),
@@ -60,7 +60,7 @@ class _TasksWidgetState extends State<TasksWidget> {
     BuildContext context,
     CalendarAppointmentDetails details,
   ){
-    final Medicin=details.appointments.first;
+    final medicin=details.appointments.first;
 
     return Container(
       width: details.bounds.width,
@@ -71,7 +71,7 @@ class _TasksWidgetState extends State<TasksWidget> {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
-        child: Text(Medicin.title,
+        child: Text(medicin.title,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(

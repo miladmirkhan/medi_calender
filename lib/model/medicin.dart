@@ -6,7 +6,7 @@ class Medicin{
   final bool isAllDay;
   
 
-   Medicin({
+  const Medicin({
    required  this.title,
     required this.description,
     required this.from,
