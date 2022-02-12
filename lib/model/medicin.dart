@@ -1,17 +1,29 @@
 class Medicin{
-  final String title;
-  final String description;
-  final DateTime from;
-  final DateTime to;
-  final bool isAllDay;
+   String? title;
+   String? description;
+   DateTime? from;
+   DateTime? to;
+   bool? isAllDay;
   
 
-  const Medicin({
-   required  this.title,
-    required this.description,
-    required this.from,
-   required  this.to,
-     this.isAllDay=false,
-    
-     });
+   Medicin(
+    this.title,
+     this.description,
+     this.from,
+    this.to,
+     this.isAllDay);
+
+     
+Map<String, dynamic> toJson() {
+    return {'title': title, 'description': description, 'from': from, 'to': to};
+  }
+
+  Medicin.fromJson(Map<String , dynamic> json){
+    title = json['title'];
+    description = json['description'];
+    from = json['from'];
+    to = json['to'];
+
+  }
+
 }
