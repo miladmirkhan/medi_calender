@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:medi_calender/model/medicin.dart';
 import 'package:medi_calender/widgets/appBar.dart';
 import 'package:medi_calender/widgets/calender.dart';
 import 'package:medi_calender/widgets/floatingButton.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 
@@ -14,6 +16,10 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+ List<Medicin> list = [];
+  late SharedPreferences sharedPreferences;
+
+
    int _currentIndex = 0;
   int _counter = 0;
 
